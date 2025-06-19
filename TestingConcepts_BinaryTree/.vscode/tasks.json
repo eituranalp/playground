@@ -62,5 +62,6 @@
 			"group": "build",
 			"detail": "compiler: cl.exe"
 		}
+
 	]
 }

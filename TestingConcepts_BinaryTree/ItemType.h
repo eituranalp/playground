@@ -4,10 +4,10 @@
 #include <iostream>
 using namespace std;
 
-// Enum for comparison
+// Possible comparison results for two ItemType values
 enum Comparison { LESS, EQUAL, GREATER };
 
-// ItemType class declaration + implementation
+// Represents an item that stores an integer value and supports comparison and printing
 class ItemType {
 public:
     ItemType() : value(0) {}

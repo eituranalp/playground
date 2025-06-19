@@ -38,7 +38,7 @@ void TreeType::Retrieve(TreeNode* tree, ItemType& item, bool& found) const {
 
 void TreeType::Delete(TreeNode*& tree, ItemType item){
     if(tree == nullptr){
-        return;     //item not found
+        return;     // Item not found; do nothing
     }
     Comparison result = item.compareTo(tree->info);
     if(result == LESS){
@@ -50,15 +50,55 @@ void TreeType::Delete(TreeNode*& tree, ItemType item){
     }
 }
 
-void DeleteNode(TreeNode*& tree){
-    TreeNode* tempPtr = tree;
-    if(tree->left==NULL){
-        tree=tree->right;
+void TreeType::DeleteNode(TreeNode*& tree) {
+    TreeNode* tempPtr;
+
+    if (tree->left == nullptr) {
+        tempPtr = tree;
+        tree = tree->right;
         delete tempPtr;
-    }else if(tree->right==NULL){
-        tree=tree->left;
+    }
+    else if (tree->right == nullptr) {
+        tempPtr = tree;
+        tree = tree->left;
         delete tempPtr;
-    }else{
-        //two children
+    }
+    else {
+        // Node has two children: find inorder successor (leftmost node in right subtree)
+        TreeNode* successorParent = tree;
+        TreeNode* successor = tree->right;
+
+        // Find the leftmost node in right subtree
+        while (successor->left != nullptr) {
+            successorParent = successor;
+            successor = successor->left;
+        }
+
+        // Copy successor's value into current node
+        tree->info = successor->info;
+
+        // Recursively delete successor node
+        if (successorParent->left == successor)
+            Delete(successorParent->left, successor->info);
+        else
+            Delete(successorParent->right, successor->info);
     }
 }
+void TreeType::PutItem(ItemType item) {
+    Insert(root, item);
+}
+void TreeType::Insert(TreeNode*& tree, ItemType item) {
+    if (tree == nullptr) {
+        tree = new TreeNode;
+        tree->info = item;
+        tree->left = nullptr;
+        tree->right = nullptr;
+    } else {
+        Comparison result = item.compareTo(tree->info);
+        if (result == LESS)
+            Insert(tree->left, item);
+        else
+            Insert(tree->right, item);
+    }
+}
+//checking

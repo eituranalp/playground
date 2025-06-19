@@ -42,30 +42,7 @@ public:
             src = src->next;
         }
     }
-    /*
-    // Assignment Operator
-    StackType& operator=(const StackType& other) {
-        if (this != &other) {
-            while (!IsEmpty()) Pop();
-            topPtr = nullptr;
 
-            Node* src = other.topPtr;
-            Node* last = nullptr;
-
-            while (src != nullptr) {
-                Node* newNode = new Node{src->data, nullptr};
-                if (topPtr == nullptr)
-                    topPtr = last = newNode;
-                else {
-                    last->next = newNode;
-                    last = newNode;
-                }
-                src = src->next;
-            }
-        }
-        return *this;
-    }
-    */
     // Stack Operations
     bool IsEmpty() const {
         return topPtr == nullptr;
@@ -94,7 +71,6 @@ public:
     friend bool Identical(const StackType& stack1, const StackType& stack2);
 };
 
-// Declaration only (no implementation)
 bool Identical(StackType stack1, StackType stack2){
     while(!stack1.IsEmpty()&& !stack2.IsEmpty()){
         if(stack1.Top()==stack2.Top()){

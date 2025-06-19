@@ -1,7 +1,9 @@
+// ItemType stores an integer and supports comparison and output
+
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
 
-// Enum for comparison
+// Enum to represent result of comparing two ItemType objects
 enum Comparison { LESS, EQUAL, GREATER };
 
 class ItemType {

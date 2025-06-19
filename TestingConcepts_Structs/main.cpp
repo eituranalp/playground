@@ -1,4 +1,3 @@
-//cd D:\.Programs\VisualStudioProjects\3.ChapterTestingConcepts
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -46,9 +45,6 @@ struct line{
     };
     
 int main(){
-
-    //--------------------------------------------------------
-
 
     line line1{{15,15},{30,60}};
     line line2{{75,26},{101,62}};

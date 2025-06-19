@@ -5,16 +5,16 @@
 using namespace std;
 
 // Node structure
-struct Node {
+struct NodeSLL {
     int data;
-    Node* next;
-    Node* previous;
-    Node(int val) : data(val), next(nullptr), previous(nullptr) {} // Constructor
+    NodeSLL* next;
+    NodeSLL* previous;
+    NodeSLL(int val) : data(val), next(nullptr), previous(nullptr) {} // Constructor
 };
 
 class SortedLinkedList {
 private:
-    Node* head; // Pointer to the head node
+    NodeSLL* head; // Pointer to the head node
 
 public:
     SortedLinkedList();    // Constructor
@@ -23,7 +23,7 @@ public:
     bool search(int x);    // Search for a value
     void display();        // Display the list
     ~SortedLinkedList();   // Destructor to free memory
-    void findItem(Node* listData, Node* &loc, Node* &preloc, bool &found, int item);
+    void findItem(NodeSLL* listData, NodeSLL* &loc, NodeSLL* &preloc, bool &found, int item);
     
 };
 

@@ -9,7 +9,7 @@ ItemType::ItemType() : value(0) {}
 // Parameterized constructor
 ItemType::ItemType(int val) : value(val) {}
 
-// Comparison function
+// Compares this item's value with another
 Comparison ItemType::compareTo(const ItemType& other) const {
     if (value < other.value) return LESS;
     else if (value > other.value) return GREATER;

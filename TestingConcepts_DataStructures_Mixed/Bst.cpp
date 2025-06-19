@@ -40,7 +40,7 @@ void BST::deleteItemHelper(Node*& tree, ItemType& item){
                 tree = tree->right;
                 delete temp;
             }else{
-                //two children, 
+                //two children: find and replace with inorder successor
                 Node* successor = tree->right;
                 while (successor->left != nullptr) {
                     successor = successor->left;

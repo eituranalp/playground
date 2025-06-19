@@ -1,74 +1,48 @@
 #include <iostream>
 #include "SortedType.h"
+#include "SortedLinkedList.h"
 
-void printMenu() {
-    std::cout << "\n=== Sorted Doubly Linked List Menu ===\n";
-    std::cout << "1. Insert an item\n";
-    std::cout << "2. Remove an item\n";
-    std::cout << "3. Search for an item\n";
-    std::cout << "4. Get list length\n";
-    std::cout << "5. Clear list\n";
-    std::cout << "0. Exit\n";
-    std::cout << "Enter your choice: ";
-}
+using namespace std;
 
 int main() {
-    SortedType list;
-    int choice;
+    SortedType doublyList;
+    SortedLinkedList singlyList;
 
-    do {
-        printMenu();
-        std::cin >> choice;
+    cout << "Testing SortedType (Doubly Linked List):\n";
 
-        switch (choice) {
-            case 1: {
-                int value;
-                std::cout << "Enter value to insert: ";
-                std::cin >> value;
-                list.insert(value);
-                std::cout << value << " inserted.\n";
-                break;
-            }
-            case 2: {
-                int value;
-                std::cout << "Enter value to remove: ";
-                std::cin >> value;
-                if (list.remove(value)) {
-                    std::cout << value << " removed.\n";
-                } else {
-                    std::cout << value << " not found.\n";
-                }
-                break;
-            }
-            case 3: {
-                int value;
-                std::cout << "Enter value to search: ";
-                std::cin >> value;
-                Node* result = list.search(value);
-                if (result != nullptr) {
-                    std::cout << value << " found in the list.\n";
-                } else {
-                    std::cout << value << " not found.\n";
-                }
-                break;
-            }
-            case 4: {
-                std::cout << "List length: " << list.getLength() << "\n";
-                break;
-            }
-            case 5: {
-                list.clear();
-                std::cout << "List cleared.\n";
-                break;
-            }
-            case 0:
-                std::cout << "Exiting program...\n";
-                break;
-            default:
-                std::cout << "Invalid option. Try again.\n";
-                break;
-        }
-    } while (choice != 0);
+    doublyList.insert(10);
+    doublyList.insert(5);
+    doublyList.insert(20);
+
+    cout << "Inserted 10, 5, 20 into SortedType.\n";
+    cout << "Length: " << doublyList.getLength() << endl;
+
+    if (doublyList.search(10))
+        cout << "10 found.\n";
+    else
+        cout << "10 not found.\n";
+
+    doublyList.remove(5);
+    cout << "Removed 5. New length: " << doublyList.getLength() << endl;
+
+
+    cout << "\nTesting SortedLinkedList (Singly Linked List):\n";
+
+    singlyList.insert(30);
+    singlyList.insert(25);
+    singlyList.insert(35);
+
+    cout << "Inserted 30, 25, 35 into SortedLinkedList.\n";
+    singlyList.display();
+
+    if (singlyList.search(25))
+        cout << "25 found.\n";
+    else
+        cout << "25 not found.\n";
+
+    singlyList.remove(25);
+    cout << "Removed 25. List now:\n";
+    singlyList.display();
 
     return 0;
 }
