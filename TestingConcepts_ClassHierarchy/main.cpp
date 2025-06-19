@@ -1,8 +1,6 @@
 #include <iostream>
 #include "Car.h"
 using namespace std;
-//two different ways to find largest number among three numbers 
-
 
 int main(){
 

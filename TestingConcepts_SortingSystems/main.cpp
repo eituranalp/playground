@@ -5,13 +5,33 @@ void merge(int arr[], int left, int mid, int right);
 void bubbleSort(int arr[], int size);
 void selectionSort(int arr[], int size);
 void printArray(int arr[], int size);
-int main(){
-    int values[8] = {20, 13, 4, 2, 6, 11, 0, 56};
+int main() {
+    int original[8] = {20, 13, 4, 2, 6, 11, 0, 56};
+
+    // Merge Sort
+    int arr1[8];
+    copy(begin(original), end(original), arr1);
     cout << "Original array: ";
-    printArray(values, 8);
-    mergeSort(values,0,7);  //right is size-1
-    cout << "Using merge sort: ";
-    printArray(values, 8);
+    printArray(arr1, 8);
+    mergeSort(arr1, 0, 7);
+    cout << "After merge sort: ";
+    printArray(arr1, 8);
+
+    // Bubble Sort
+    int arr2[8];
+    copy(begin(original), end(original), arr2);
+    bubbleSort(arr2, 8);
+    cout << "After bubble sort: ";
+    printArray(arr2, 8);
+
+    // Selection Sort
+    int arr3[8];
+    copy(begin(original), end(original), arr3);
+    selectionSort(arr3, 8);
+    cout << "After selection sort: ";
+    printArray(arr3, 8);
+
+    return 0;
 }
 void mergeSort(int arr[], int left, int right){
     //left is starting index, right is ending index
@@ -64,6 +84,32 @@ void merge(int arr[], int left, int mid, int right){
     }
     delete[] leftArr;
     delete[] rightArr;
+}
+void bubbleSort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j+1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+void selectionSort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < size; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        // Swap arr[i] and arr[minIndex]
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
 }
 void printArray(int arr[], int size){
     for(int i=0;i<size;i++){

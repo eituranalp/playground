@@ -1,3 +1,4 @@
+// Binary Search Tree implementation with insert, delete, print, and leaf node count
 #ifndef BST_H
 #define BST_H
 #include "ItemType.h"

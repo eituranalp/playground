@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+// Base class representing a generic vehicle with make, model, and year
 class Vehicle{
 protected:
     int year;

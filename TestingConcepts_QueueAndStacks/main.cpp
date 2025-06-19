@@ -2,52 +2,6 @@
 #include "ArrayStack.h"
 #include "ArrayQueue.h"
 using namespace std;
-/*
-const int MAX_ITEMS = 100;
-class ItemType {
-    public:
-        int key;
-        ItemType(int k = 0) : key(k) {}
-        bool operator==(const ItemType& other) const { return key == other.key; }
-    };
-struct NodeType {
-    ItemType info;
-    NodeType* next;
-};
-class UnsortedType {
-    public:
-        UnsortedType(); 
-        bool IsFull() const;
-        void InsertItem(ItemType item);
-        void PrintList() const;
-        void PartitionLists(UnsortedType list, ItemType item, UnsortedType& list1, UnsortedType& list2);
-    
-    private:
-        ItemType items[MAX_ITEMS];
-        int length;
-    };
-    UnsortedType::UnsortedType() {
-        length = 0;
-    }
-
-
-void UnsortedType::InsertItem(ItemType item) {
-    if (!IsFull()) {
-        items[length] = item;
-        length++;
-    }
-}
-    
-void UnsortedType::PartitionLists(UnsortedType list, ItemType item, UnsortedType& list1, UnsortedType& list2) {
-    for (int i = 0; i < list.length; i++) {
-        if (list.items[i].key <= item.key) { // compare ItemTypes directly or use compareTo
-            list1.InsertItem(list.items[i]);  // add to list1 if key is <= item's key
-        } else {
-            list2.InsertItem(list.items[i]);  // add to list2 if key is > item's key
-        }
-    }
-}
-*/
 int main() {
     std::cout << "Testing ArrayStack..." << std::endl;
     ArrayStack stack(5);
